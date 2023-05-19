@@ -48,9 +48,9 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
             'text': 'I would really like to drive your car around the block a few times!'
         }]
 
-        request = requests.post(constructed_url, params=params, headers=headers, json=body)
-        response = request.json()
-        return func.HttpResponse(f"{response}")
+        response = requests.post(constructed_url, params=params, headers=headers, json=body)
+        result = response.json()
+        return func.HttpResponse(f"{result}")
     else:
         return func.HttpResponse(
             "Parameters, src: source language, text: text being translated, dst: destination language are required.",
